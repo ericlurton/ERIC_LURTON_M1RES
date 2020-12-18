@@ -1,60 +1,47 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[6]:
-
-
-def multi():
-    a = int(input("Entrer un nombre à multiplier : "))
-    for b in range(1,11):
-        print(a*b)  #Va afficher tout les calculs a*b avec b[1-10]
-
-multi()
-
-
-# In[8]:
-
-
-def multi2():
-    a = int(input("Entrer un nombre à multiplier : "))
-    for b in range(1, 11):
-        print(a*b, end=" ") #End ="" permet de tout écrire sur une ligne
-        
-multi2()
-
-
 # In[3]:
 
 
-def multiplat():
-    a = int(input("Entrer un nombre pour trouver les tables de ce nombre et celle inférieur : "))
-    for b in range(a):
-        print("Table de", int(b) + 1, ":")
-        for i in range(1, 11):
-            print(b+1)*i,)
-            
-multiplat()
+# Exercice 1
 
 
-# In[11]:
+n = input("Entrer un nombre: ") #Demande un nombre
+for i in range(1,11): #Tant que i est inclus entre 1 et 11 --> on affiche n*i, donc n*1 à 10
+    print(n*i)
+
+print("# *** 1 *** #")
+
+n = input("Entrer un nombre: ")
+for i in range(1,11):
+    print(n*i, end = ' ') #le end = ' ' permet d'écrire le tt en une ligne
 
 
-def multi4():
-    a = int(input("Entrer un nombre à afficher en asterisk : "))
-    for b in range(a):
-        print("*" * (b+1))
-        
-multi4()
+print("\n")
+print("# *** 3 *** #")
+
+n = input("Entrer un nombre: ")
+for i in range(n): 
+    print("Table de", i+1, ":", end = ' ')
+    for j in range(1,11):
+        print((i+1)*j, end = ' ')
+    print("\n")
 
 
-# In[12]:
+print("\n")
+print("# *** 4 *** #")
+
+n = input("Entrer un nombre: ")
+for i in range(n):
+    print("*"*(i+1))
 
 
-def multi5():
-    a = int(input("Entrer un nombre à afficher en pyramide d'asterisk : "))
-    for b in range(a):
-        print(" " * ((user-1)-b) + ("* " * (b+1)))
-multi5()
+print("# *** 5 *** #")
+
+n = input("Entrer un nombre: ")
+for i in range(n):
+    print(" "*((n-1)-i) + ("* "*(i+1))[:2*(i+1)-1] + " "*((n-1)-i))
 
 
 # In[ ]:
@@ -112,73 +99,83 @@ print("# *** 5 *** #")
 print(dico_annee["28 October"])
 
 
-# In[18]:
-
-
-def note():
-    user_nb = int(input("Combien de note"))
-    liste_notes = []
-    while len(liste_notes) < user_nb:
-        user = int(input("Entrer une note : "))
-        liste_notes.append(user)
-    mini = min(liste_notes)
-    maxi = max(liste_notes)
-    som = 0
-
-    for notes in liste_notes:
-        som += int(notes)
-    moy = float(som) / len(liste_notes)
-
-    print("moyenne " + str(moy), "minimum " + str(mini), "maximum " + str(maxi))
-
-note()
-
-
 # In[ ]:
 
 
-def note2():
-    user_nb = int(input("Entrer le nombre de notes que vous voulez entrer ? "))
-    liste_notes = []
-    while len(liste_notes) < user_nb:
-        user = int(input("Entrer une note : "))
-        liste_notes.append(user)
-    mini = min(liste_notes)
-    maxi = max(liste_notes)
-    som = 0
+# Exercice 3
 
-    for notes in liste_notes:
-        som += int(notes)
-    moy = float(som) / len(liste_notes)
 
-    print("moyenne " + str(moy), "minimum " + str(mini), "maximum " + str(maxi))
+print("# *** 1 *** #")
+#initialisation d'une variable nb à 0 et d'une liste vide
+nb = 0
+liste_notes = []
+#tant que nb < 3 ( 0 1 2 )
+while nb < 3:
+	note = input("Entrer une note: ") #Créé une input nommé note, demandant une note
+	liste_notes.append(note) #on ajoute à la fin de la liste la note
+	nb += 1 #on incrémente nb de 1
     
-    
-note2()
+#Ainsi le prgm va demander 3 notes, et les mettres dans une liste
+#Definissions des variable "mini" et "maxi" prenant grâce aux fonctions min & max les extrêmes de la liste
+mini = min(liste_notes)
+maxi = max(liste_notes)
+#Initialisation d'une variable moy à 0
+moy = 0
+#Calcul de la moyenne je comprend mais pas trop
+for n in liste_notes:
+	moy += n
+moy = float(moy)/len(liste_notes)
+
+print("Note minimale:", mini)
+print("Note maximale:", maxi)
+print("Moyenne:", moy)
 
 
-# In[19]:
+
+print("# *** 2 *** #")
+#création d'une input demandant le nombre de note qu'il veut rentrer
+#même programme qu'au dessus
+nb_notes = input("Combien de notes voulez-vous entrer? ")
+nb = 0
+liste_notes = []
+while nb < nb_notes:
+	note = input("Entrer une note: ")
+	liste_notes.append(note)
+	nb += 1
+
+mini = min(liste_notes)
+maxi = max(liste_notes)
+moy = 0
+for n in liste_notes:
+	moy += n
+moy = float(moy)/len(liste_notes)
+
+print("Note minimale:", mini)
+print("Note maximale:", maxi)
+print("Moyenne:", moy)
 
 
-def note3():
-    liste_notes = []
-    while True:
-        user = input("Entrer une note : (fin pour finir) ")
-        if user == "fin":
-                break
-        else:
-            liste_notes.append(float(user))
-            mini = min(liste_notes)
-            maxi = max(liste_notes)
-            som = 0
-            for notes in liste_notes:
-                som += int(notes)
-            moy = float(som) / len(liste_notes)
 
-    print("moyenne " + str(moy), "minimum " + str(mini), "maximum " + str(maxi))
+print("# *** 3 *** #")
 
+#Même programme en spécifiant que l'utilisateur peut entrer autant de note qu'il veut jusqu'à ce qu'il écrive "fin" comme vu au TD2
 
-note3()
+liste_notes = []
+note = input("Entrer une note (taper fin pour terminer la saisie): ")
+while note != "fin":
+	liste_notes.append(float(note))
+	note = input("Entrer une note (taper fin pour terminer la saisie): ")
+
+mini = min(liste_notes)
+maxi = max(liste_notes)
+moy = 0
+for n in liste_notes:
+	moy += n
+moy = float(moy)/len(liste_notes)
+
+print("Note minimale:", mini)
+print("Note maximale:", maxi)
+print("Moyenne:", moy)
 
 
 # In[ ]:

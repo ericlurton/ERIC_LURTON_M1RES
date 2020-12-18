@@ -1,29 +1,31 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[10]:
 
 
-#Exo 1
+#Exercice 1
+c = "X44bf38j23jdjgfjh737nei47"
 
-c = "X44bf38j23jdjgfjh737nei47" ###QST 1 - 2
-c_num = ""
-c_alpha = ""
-for caracters in c: #Pour tt les caractères composant C
-    if str.isdigit(caracters) == True: #Extraits les caractères numériques
-        c_num += caracters #Les enregistres dans c_num
-    else:
-        c_alpha += caracters #Enregistre les autres dans c_alpha
 
-print(c_num, c_alpha)
+#2
+c_alpha, c_num = "", "" #Créé 2 variable c_alpha et c_num
+for x in c: #Initilisation d'une variable x qui impactera la variable c
+    if x.isalpha(): # la variable str.isalpha() va extraire les suites de lettres 
+#( ici str = x car on a définis x dans le for )
+        c_alpha = c_alpha + x #Alors on ajoute a la variable c_alpha les valeurs de x
+    else: #Tout les caractères non extrait par la fonction str.isalpha()
+        c_num = c_num + x #C'est à dire les suites de chiffres donc, serons ajouté a la variable c_num
 
-###QST 3
+print(c_alpha) #On imprime c_alpha qui est rien+x du if(c_alpha=""+x) --> les suites de lettres
+print(c_num) #On imprime c_num qui est rien+x du else (c_num=""+x) --> les suites de chiffre
 
-str_find = "j23"
-c.find(str_find)
-if c.find(str_find) != -1:
-    new_c = c.replace(str_find, "j24")
-    print(new_c)
+
+#3
+if c.find("j23") != 1:#la fonction str.find() permet de chercher l'intérieur de la paranthèse dans une variable, ici c
+                      #En gros, on demande si dans c il y a j23 !=1 ==> différend de 1 et 1 = false
+    c = c.replace("j23","j24")
+
 
 #4
 i1 = c.find("f") #va chercher f et l'enregistrer dans i1
@@ -37,34 +39,52 @@ else:
     print("Le pattern f37 n'existe pas dans la chaîne c") #autrement
 
 
-# In[19]:
+# In[14]:
 
 
-#Exo 2
-texte = "We introduce here the Python language." ##QST 1
-i = 0
-for lettre in texte:
-    i = i+1
-if i == len(texte):
-    print("Il y a", i,"lettre dans ta phrase")
-else:
-    print("CA BUG") 
+#Exercice 2
+
+#1
+
+texte = "We introduce here the Python language"
+
+counter = 0 #Création d'une variable counter à 0
+for c in texte: #Par caractère dans le texte, counter gagne 1
+    counter += 1
+print(counter) #On affiche le nombre de caractère compté
+print(len(texte)) #On affiche la longueur du texte
+
+counter = 0
+for c in texte:
+    if  c != " ": #Si le caractère n'est pas un espace counter prend 1
+        counter += 1
+print(counter) #on imprime le comptage sans espace
 
 
-mots = len(texte) #Extrait le nombre de lettre et d'espace
-espace = len(texte.split()) #Extrait le nombre d'espace --> split
-print("Il y a", espace, "mots dans ta phrase")
-print(int(mots)-int(espace),",c'est le nombre de lettres sans les espaces") #Nombre de lettre sans espace
-
-#QST 2
-
-texte2 = "We introduce here the Python language. To learn more about the language, consider going through the excellent tutorial https://docs.python.org/ tutorial. Dedicated books are also available, such as http://www.diveintopython.net/."
-
-mots = len(texte2.split())
-print(mots)
+counter = 0
+for c in texte:
+    if  c == " ":
+        counter += 1 #Si il y a un espace, c'est qu'il y a un mot après
+counter += 1 #Le premier mot arrive sans espace
+print(counter) #Le nombre d'espace + 1 == le nombre de mot
 
 
-# In[21]:
+#2
+
+#le script est toujours valable car les espaces survenant après les symboles de ponctuation permettent toujours d'incrémenter le nombre de mots.
+
+texte2 = "We introduce here the Python language. To learn more about the language, consider going through the excellent tutorial https://docs.python.org/tutorial. Dedicated books are also available, such as http://www.diveintopython.net/."
+print(texte2)
+
+counter = 0
+for c in texte2:
+    if  (c == " "):
+        counter += 1
+counter += 1
+print(counter)
+
+
+# In[18]:
 
 
 #Exercice 3
@@ -142,7 +162,7 @@ print(joueur3)
 print(joueur4)
 
 
-# In[12]:
+# In[ ]:
 
 
 #1

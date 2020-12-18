@@ -25,7 +25,7 @@ print(g)
 print(h)
 
 
-# In[26]:
+# In[8]:
 
 
 #Exo 2
@@ -40,7 +40,7 @@ m=s[0:6] #Va print les caractère de S allant de 0 à 6, si il y a - de 6 caract
 print(l,k,m)
 
 
-# In[25]:
+# In[12]:
 
 
 #Exo 3
@@ -55,7 +55,7 @@ print(c)
 print(e)
 
 
-# In[31]:
+# In[16]:
 
 
 #Exo 4
@@ -69,7 +69,7 @@ initial=prenom[0]+nom[0]+''
 print(initial*10)
 
 
-# In[34]:
+# In[ ]:
 
 
 #Exo 5
@@ -80,7 +80,7 @@ print(a+" "+b) #Ecrit prénom nom
 print(a[0]+" "+b[0]) #Ecrit la première lettre du prénom et du nom, car pour rappel le premier caractère d'une variable est numéroté à 0
 
 
-# In[6]:
+# In[ ]:
 
 
 #Exo 6
@@ -106,4 +106,10 @@ expression_bol.replace('non', 'not')
 expression_bol.replace('et', 'and')
 expression_bol.replace('ou', 'or')
 print (bool(expression_bol))
+
+
+# In[ ]:
+
+
+
 
