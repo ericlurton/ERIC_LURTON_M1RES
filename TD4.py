@@ -35,15 +35,22 @@ print(volboite(1,3,9))
 
 #4
 def volboite(f,g,h):
-    if g==null or h ==null: #Si g ou h non remplis
-        g and h == f #g et h prennent la valeur de f
+    if g==None and h==None: #Si g ET h non remplis
+        g==f and h==f #g et h prennent la valeur de f
         calcul=(f*g*h) #calcul classique
+        print("La boite est cubique")
         return calcul
-    else:
+    elif h==None:#
+        h==f #POUR FAIRE UN CARRE
+        calcul=(f*g*h) #calcul classique
+        print("La boite est un parallepipède a base carré")
+        return calcul
+    else:   
         calcul=(f*g*h)#autrement
+        print("La boite est un parralepipède générale")
         return calcul
 
-print(volboite(1,3,9))
+print(volboite(1,3,2))
 
 #5
 def remplacement(arg_1=3)
@@ -137,32 +144,33 @@ def motus(arg_1=10): #10 entrée possible
     motalpha=[] #On créé une liste dans laquel on récupérera le mot choisis aléatoirement
     motalpha[0]=choixmot #En caractère car dans une liste
     
-#############################################################################################################################
-    for x in range(len(word)):
-        user.append("-")
-    print(" ".join(user))
+#Le travail ci dessous est tolalement inspiré, par celui d'un camarade, je comprend ce qu'il a fait mais aurait été incapable de le faire par moi même
+
+    for x in range(len(word)): #Tant que x < longueur du mot
+        user.append("-") #On rajoute un - à la fin de la liste pour faire le fléchage ( herbe --> ----- )
+    print(" ".join(user)) #Initialisation de "user"
     compteur = 0
 
     while True:
         compteur += 1
-        if compteur == arg_1 + 1:
-            break
+        if compteur == arg_1 + 1: #Si jamais le programme dépasse en nombre d'essaie la longueur du mots, il s'arrête
+            break 
         else:
-            print("Essai numéro : " + str(compteur))
-            ask = input("Entrer une lettre : ")
+            print("Essai numéro : " + str(compteur)) 
+            ask = input("Entrer une lettre : ") #On demande une lettre
             for i in range(len(word)):
-                if ask == word[i]:
+                if ask == word[i]: #Si la lettre est dans le mot, on l'affiche et on remplace le - associé
                     user[i] = word[i]
-                    if user == word:
+                    if user == word: #Si l'user trouve le mot, il gagne
                         print(" ".join(user))
                         win = input("Bravo! Rejouer ? y/n ")
                         if win == "y":
-                            motus()
+                            motus()#Si il veut rejouer, on relance le programme
                         else:
                             exit()
                 else:
                     pass
-            print(" ".join(user))
+            print(" ".join(user)) #Si l'user n'a pas trouvé dans les essaies nécessaire, il perd, et le programme s'arrête sauf si l'user veut rejouer
 
     rejoue = input("Perdu... Rejoue y/n : ")
     if rejoue == "y":
@@ -170,8 +178,16 @@ def motus(arg_1=10): #10 entrée possible
 #motus()
 
 
+# In[6]:
+
+
+
+
+
 # In[ ]:
 
 
+#Exo 5
 
+#Pas réussi
 
